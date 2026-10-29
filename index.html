@@ -69,7 +69,45 @@ g.lineTo(x-s*1.5,y+s*.28);
 g.quadraticCurveTo(x-s*1.85,y+s*.18,x-s*1.75,y-s*.1);
 g.closePath()}
 function cassowary(g,x,y,s){g.beginPath();g.ellipse(x,y+s*.2,s*.78,s*.98,0,0,7);g.ellipse(x+s*.52,y-s*.88,s*.2,s*.78,-.1,0,7);g.ellipse(x+s*.63,y-s*1.55,s*.34,s*.24,0,0,7);g.moveTo(x+s*.44,y-s*1.67);g.lineTo(x+s*.64,y-s*2.05);g.lineTo(x+s*.84,y-s*1.66);g.closePath();g.ellipse(x-s*.28,y+s*1.08,s*.1,s*.62,0,0,7);g.ellipse(x+s*.28,y+s*1.08,s*.1,s*.62,0,0,7)}
-function bird(g,x,y,s){g.beginPath();g.moveTo(x-s*1.6,y);g.quadraticCurveTo(x-s*.5,y-s*.8,x,y-s*.15);g.quadraticCurveTo(x+s*.7,y-s*.9,x+s*1.6,y-s*.15);g.lineTo(x+s*.3,y+s*.4);g.lineTo(x,y+s);g.lineTo(x-s*.3,y+s*.4);g.closePath()}
+function bird(g,x,y,s){
+  // Frigatebird silhouette: long, swept-back wings, a slim body,
+  // a small head with hooked bill, and a deeply forked tail.
+  // The diagonal pose follows the supplied reference image.
+  g.beginPath();
+
+  // Outer edge of the upper-left wing, sweeping into the shoulder.
+  g.moveTo(x-s*.78,y-s*.98);
+  g.quadraticCurveTo(x-s*.56,y-s*.88,x-s*.34,y-s*.66);
+  g.lineTo(x-s*.08,y-s*.40);
+  g.quadraticCurveTo(x-s*.02,y-s*.31,x-s*.02,y-s*.18);
+
+  // Narrow body and head; short hooked bill points to the right.
+  g.quadraticCurveTo(x+s*.00,y-s*.08,x+s*.12,y-s*.02);
+  g.quadraticCurveTo(x+s*.23,y+s*.02,x+s*.32,y-s*.02);
+  g.lineTo(x+s*.43,y-s*.07);
+  g.lineTo(x+s*.34,y+s*.01);
+  g.quadraticCurveTo(x+s*.27,y+s*.08,x+s*.27,y+s*.17);
+
+  // Long lower-right wing, tapering to a sharp tip.
+  g.quadraticCurveTo(x+s*.30,y+s*.31,x+s*.42,y+s*.43);
+  g.lineTo(x+s*.91,y+s*.99);
+  g.quadraticCurveTo(x+s*.86,y+s*.76,x+s*.73,y+s*.49);
+  g.lineTo(x+s*.56,y+s*.20);
+  g.quadraticCurveTo(x+s*.49,y+s*.10,x+s*.38,y+s*.09);
+
+  // Tail feathers form a distinct fork behind the body.
+  g.quadraticCurveTo(x+s*.22,y+s*.07,x+s*.13,y+s*.13);
+  g.lineTo(x-s*.12,y+s*.30);
+  g.lineTo(x-s*.16,y+s*.27);
+  g.quadraticCurveTo(x-s*.12,y+s*.20,x-s*.02,y+s*.12);
+  g.quadraticCurveTo(x-s*.12,y+s*.07,x-s*.14,y-s*.04);
+
+  // Return along the inner edge of the upper wing.
+  g.quadraticCurveTo(x-s*.18,y-s*.16,x-s*.22,y-s*.32);
+  g.lineTo(x-s*.35,y-s*.57);
+  g.quadraticCurveTo(x-s*.57,y-s*.82,x-s*.78,y-s*.98);
+  g.closePath();
+}
 function shark(g,x,y,s){g.beginPath();g.ellipse(x,y,s*1.18,s*.43,0,0,7);g.moveTo(x+s,y-s*.18);g.lineTo(x+s*1.55,y);g.lineTo(x+s,y+s*.18);g.closePath();g.moveTo(x-s,y);g.lineTo(x-s*1.65,y-s*.62);g.lineTo(x-s*1.35,y);g.lineTo(x-s*1.65,y+s*.62);g.closePath();g.moveTo(x-s*.1,y-s*.32);g.lineTo(x+s*.25,y-s*.95);g.lineTo(x+s*.45,y-s*.28);g.closePath();g.moveTo(x,y+s*.28);g.lineTo(x+s*.28,y+s*.78);g.lineTo(x+s*.52,y+s*.23);g.closePath()}
 
 function resize(){
