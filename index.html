@@ -197,26 +197,67 @@ function crocodile(g,x,y,s){
 }
 function cassowary(g,x,y,s){
   g.beginPath();
-  // Tall rounded body, long S-curved neck, head and casque.
-  g.moveTo(x-s*.58,y+s*.50);
-  g.quadraticCurveTo(x-s*.84,y+s*.05,x-s*.57,y-s*.37);
-  g.quadraticCurveTo(x-s*.27,y-s*.72,x+s*.18,y-s*.52);
-  g.quadraticCurveTo(x+s*.55,y-s*.36,x+s*.61,y+s*.05);
-  g.quadraticCurveTo(x+s*.68,y+s*.42,x+s*.37,y+s*.58);
-  g.quadraticCurveTo(x-s*.08,y+s*.73,x-s*.58,y+s*.50); g.closePath();
-  g.moveTo(x+s*.28,y-s*.40); g.quadraticCurveTo(x+s*.51,y-s*.68,x+s*.40,y-s*.97);
-  g.quadraticCurveTo(x+s*.27,y-s*1.22,x+s*.46,y-s*1.43);
-  g.quadraticCurveTo(x+s*.58,y-s*1.57,x+s*.71,y-s*1.40);
-  g.quadraticCurveTo(x+s*.80,y-s*1.26,x+s*.70,y-s*1.12);
-  g.quadraticCurveTo(x+s*.57,y-s*.91,x+s*.66,y-s*.67);
-  g.quadraticCurveTo(x+s*.77,y-s*.45,x+s*.61,y-s*.25);
-  // Beak.
-  g.moveTo(x+s*.69,y-s*1.30); g.lineTo(x+s*.95,y-s*1.24); g.lineTo(x+s*.72,y-s*1.18);
-  // Long legs and feet.
-  g.moveTo(x-s*.22,y+s*.55); g.lineTo(x-s*.27,y+s*1.10); g.lineTo(x-s*.45,y+s*1.24);
-  g.lineTo(x-s*.15,y+s*1.24); g.lineTo(x-s*.02,y+s*1.13); g.lineTo(x+s*.02,y+s*.58);
-  g.moveTo(x+s*.28,y+s*.55); g.lineTo(x+s*.36,y+s*1.08); g.lineTo(x+s*.22,y+s*1.23);
-  g.lineTo(x+s*.53,y+s*1.23); g.lineTo(x+s*.62,y+s*1.15); g.lineTo(x+s*.52,y+s*.51);
+  // Cassowary in side profile, facing left, matching the supplied line art.
+  // Start at the feathered rump and trace the back into the long S-shaped neck.
+  g.moveTo(x+s*.78,y+s*.05);
+  g.quadraticCurveTo(x+s*.72,y-s*.48,x+s*.18,y-s*.58);
+  g.quadraticCurveTo(x-s*.20,y-s*.66,x-s*.42,y-s*.40);
+  // Neck rises in a long curve to the small head.
+  g.quadraticCurveTo(x-s*.72,y-s*.25,x-s*.73,y-s*.02);
+  g.quadraticCurveTo(x-s*.75,y+s*.20,x-s*.53,y+s*.32);
+  g.quadraticCurveTo(x-s*.34,y+s*.43,x-s*.18,y+s*.36);
+  // Chest and underside of the rounded body.
+  g.quadraticCurveTo(x+s*.08,y+s*.35,x+s*.28,y+s*.22);
+  g.quadraticCurveTo(x+s*.55,y+s*.18,x+s*.78,y+s*.05);
+  // Tail feathers at the back.
+  g.quadraticCurveTo(x+s*1.02,y+s*.15,x+s*1.05,y+s*.42);
+  g.quadraticCurveTo(x+s*.97,y+s*.29,x+s*.88,y+s*.27);
+  g.quadraticCurveTo(x+s*.99,y+s*.53,x+s*.82,y+s*.43);
+  g.quadraticCurveTo(x+s*.73,y+s*.39,x+s*.70,y+s*.30);
+  // First leg, long and straight with a splayed foot.
+  g.lineTo(x+s*.61,y+s*.54);
+  g.lineTo(x+s*.65,y+s*1.04);
+  g.quadraticCurveTo(x+s*.67,y+s*1.13,x+s*.56,y+s*1.15);
+  g.lineTo(x+s*.35,y+s*1.15);
+  g.lineTo(x+s*.48,y+s*1.08);
+  g.lineTo(x+s*.47,y+s*.55);
+  // Second leg slightly behind the first.
+  g.lineTo(x+s*.22,y+s*.48);
+  g.lineTo(x+s*.15,y+s*.98);
+  g.quadraticCurveTo(x+s*.15,y+s*1.08,x+s*.05,y+s*1.09);
+  g.lineTo(x-s*.14,y+s*1.09);
+  g.lineTo(x-s*.02,y+s*1.02);
+  g.lineTo(x+s*.01,y+s*.50);
+  // Return along the lower chest and curve up the front of the S-neck.
+  g.quadraticCurveTo(x-s*.25,y+s*.49,x-s*.40,y+s*.30);
+  g.quadraticCurveTo(x-s*.59,y+s*.13,x-s*.59,y-s*.10);
+  g.quadraticCurveTo(x-s*.60,y-s*.32,x-s*.46,y-s*.46);
+  // Head, eye, beak and the tall bony casque.
+  g.quadraticCurveTo(x-s*.42,y-s*.55,x-s*.48,y-s*.68);
+  g.lineTo(x-s*.68,y-s*.70);
+  g.quadraticCurveTo(x-s*.78,y-s*.72,x-s*.70,y-s*.77);
+  g.lineTo(x-s*.52,y-s*.79);
+  g.quadraticCurveTo(x-s*.40,y-s*.82,x-s*.37,y-s*.72);
+  g.quadraticCurveTo(x-s*.34,y-s*.62,x-s*.42,y-s*.56);
+  g.quadraticCurveTo(x-s*.47,y-s*.51,x-s*.42,y-s*.40);
+  // Tall, narrow casque rising from the crown of the head.
+  g.quadraticCurveTo(x-s*.38,y-s*.54,x-s*.39,y-s*.67);
+  g.quadraticCurveTo(x-s*.41,y-s*.82,x-s*.30,y-s*.91);
+  g.quadraticCurveTo(x-s*.21,y-s*.98,x-s*.18,y-s*.84);
+  g.quadraticCurveTo(x-s*.17,y-s*.72,x-s*.27,y-s*.62);
+  g.quadraticCurveTo(x-s*.31,y-s*.57,x-s*.30,y-s*.49);
+  g.stroke();
+
+  // Distinct eye and a few separated feather lines, like the reference drawing.
+  g.beginPath();
+  g.arc(x-s*.48,y-s*.69,s*.025,0,Math.PI*2);
+  g.moveTo(x+s*.05,y-s*.43);
+  g.quadraticCurveTo(x+s*.30,y-s*.35,x+s*.51,y-s*.08);
+  g.moveTo(x+s*.20,y-s*.48);
+  g.quadraticCurveTo(x+s*.51,y-s*.28,x+s*.68,y+s*.02);
+  g.moveTo(x+s*.38,y-s*.40);
+  g.quadraticCurveTo(x+s*.68,y-s*.15,x+s*.78,y+s*.13);
+  g.stroke();
 }
 function bird(g,x,y,s){
   // Frigatebird silhouette: long, swept-back wings, a slim body,
@@ -288,8 +329,9 @@ function resize(){
  // Sample points only along the animal's outline. The story will travel
  // through these points like a constellation rather than filling the silhouette.
  const isDolphin=animal.name==='Dolphin';
- const s=Math.min(W,H)*(isDolphin?.20:.30);
- const animalY=isDolphin?H*.37:H/2-35;
+ const isCassowary=animal.name==='Cassowary';
+ const s=Math.min(W,H)*(isDolphin?.20:(isCassowary?.19:.30));
+ const animalY=isDolphin?H*.37:(isCassowary?H*.59:H/2-35);
  const off=document.createElement('canvas');
  off.width=W;off.height=H;
  const g=off.getContext('2d');
@@ -338,7 +380,8 @@ function render(){
    ctx.strokeStyle='#9fefff';
    ctx.lineWidth=1;
    const isDolphin=animal.name==='Dolphin';
-   animal.draw(ctx,cx,isDolphin?H*.37:cy,Math.min(W,H)*(isDolphin?.20:.30));
+   const isCassowary=animal.name==='Cassowary';
+   animal.draw(ctx,cx,isDolphin?H*.37:(isCassowary?H*.59:cy),Math.min(W,H)*(isDolphin?.20:(isCassowary?.19:.30)));
    ctx.stroke();
    ctx.globalAlpha=1;
    return;
