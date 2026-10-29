@@ -50,25 +50,174 @@ const animals=[
 animal=animals[Math.floor(Math.random()*animals.length)];
 animalLabel.textContent=animal.name;
 
-function turtle(g,x,y,s){g.beginPath();g.ellipse(x,y,s*1.0,s*.67,0,0,7);g.ellipse(x+s*1.15,y-s*.18,s*.32,s*.23,-.2,0,7);[[-.72,-.68,-.7],[.68,-.67,.7],[-.72,.7,.7],[.7,.7,-.7]].forEach(a=>g.ellipse(x+s*a[0],y+s*a[1],s*.43,s*.17,a[2],0,7));g.moveTo(x-s*.95,y);g.lineTo(x-s*1.45,y+s*.18);g.lineTo(x-s*.95,y+s*.28);g.closePath()}
-function dolphin(g,x,y,s){g.beginPath();g.ellipse(x,y,s*1.2,s*.43,-.08,0,7);g.moveTo(x+s,y-s*.13);g.lineTo(x+s*1.6,y+s*.02);g.lineTo(x+s,y+s*.18);g.closePath();g.moveTo(x-s,y);g.lineTo(x-s*1.6,y-s*.55);g.lineTo(x-s*1.35,y);g.lineTo(x-s*1.65,y+s*.52);g.closePath();g.moveTo(x,y+s*.2);g.lineTo(x+s*.3,y+s*.78);g.lineTo(x+s*.52,y+s*.22);g.closePath();g.moveTo(x-s*.2,y-s*.25);g.lineTo(x+s*.05,y-s*.82);g.lineTo(x+s*.25,y-s*.22);g.closePath()}
-function kangaroo(g,x,y,s){g.beginPath();g.ellipse(x,y,s*.62,s*1.0,-.12,0,7);g.ellipse(x+s*.43,y-s*.82,s*.28,s*.72,-.38,0,7);g.ellipse(x+s*.82,y-s*1.28,s*.4,s*.3,-.2,0,7);g.ellipse(x+s*.64,y-s*1.66,s*.11,s*.4,-.2,0,7);g.ellipse(x+s*1.0,y-s*1.66,s*.11,s*.4,.1,0,7);g.moveTo(x-s*.45,y+s*.25);g.lineTo(x-s*1.9,y+s*1.15);g.lineTo(x-s*.48,y+s*.78);g.closePath();g.ellipse(x+s*.32,y+s*.98,s*.35,s*.17,-.1,0,7);g.ellipse(x-s*.28,y+s*.98,s*.35,s*.17,.1,0,7)}
-function crocodile(g,x,y,s){g.beginPath();
-g.moveTo(x-s*1.75,y-s*.1);
-g.quadraticCurveTo(x-s*1.15,y-s*.45,x-s*.35,y-s*.22);
-g.quadraticCurveTo(x+s*.2,y-s*.4,x+s*.75,y-s*.18);
-g.quadraticCurveTo(x+s*1.25,y-s*.05,x+s*1.65,y+s*.08);
-g.lineTo(x+s*1.2,y+s*.2);
-g.quadraticCurveTo(x+s*.55,y+s*.35,x,y+s*.25);
-g.lineTo(x-s*.15,y+s*.62);
-g.lineTo(x-s*.35,y+s*.3);
-g.lineTo(x-s*.75,y+s*.4);
-g.lineTo(x-s*.9,y+s*.72);
-g.lineTo(x-s*1.12,y+s*.34);
-g.lineTo(x-s*1.5,y+s*.28);
-g.quadraticCurveTo(x-s*1.85,y+s*.18,x-s*1.75,y-s*.1);
-g.closePath()}
-function cassowary(g,x,y,s){g.beginPath();g.ellipse(x,y+s*.2,s*.78,s*.98,0,0,7);g.ellipse(x+s*.52,y-s*.88,s*.2,s*.78,-.1,0,7);g.ellipse(x+s*.63,y-s*1.55,s*.34,s*.24,0,0,7);g.moveTo(x+s*.44,y-s*1.67);g.lineTo(x+s*.64,y-s*2.05);g.lineTo(x+s*.84,y-s*1.66);g.closePath();g.ellipse(x-s*.28,y+s*1.08,s*.1,s*.62,0,0,7);g.ellipse(x+s*.28,y+s*1.08,s*.1,s*.62,0,0,7)}
+function turtle(g,x,y,s){
+  g.beginPath();
+  // Broad oval shell with a slightly flattened lower edge.
+  g.moveTo(x-s*.88,y+s*.48);
+  g.quadraticCurveTo(x-s*1.02,y+s*.08,x-s*.78,y-s*.43);
+  g.quadraticCurveTo(x-s*.46,y-s*.92,x+s*.20,y-s*.82);
+  g.quadraticCurveTo(x+s*.70,y-s*.72,x+s*.82,y-s*.25);
+  g.quadraticCurveTo(x+s*.96,y+s*.18,x+s*.73,y+s*.53);
+  g.quadraticCurveTo(x+s*.05,y+s*.76,x-s*.88,y+s*.48); g.closePath();
+  // Head and neck, upper right.
+  g.moveTo(x+s*.62,y-s*.52); g.quadraticCurveTo(x+s*.88,y-s*.96,x+s*1.12,y-s*.91);
+  g.quadraticCurveTo(x+s*1.38,y-s*.85,x+s*1.35,y-s*.59);
+  g.quadraticCurveTo(x+s*1.27,y-s*.34,x+s*.96,y-s*.29);
+  g.quadraticCurveTo(x+s*.78,y-s*.31,x+s*.62,y-s*.52); g.closePath();
+  // Four paddle-shaped flippers.
+  g.moveTo(x-s*.62,y-s*.48); g.quadraticCurveTo(x-s*.95,y-s*.91,x-s*1.36,y-s*1.02);
+  g.quadraticCurveTo(x-s*1.20,y-s*.67,x-s*.82,y-s*.34); g.closePath();
+  g.moveTo(x+s*.58,y-s*.20); g.quadraticCurveTo(x+s*1.08,y-s*.03,x+s*1.18,y+s*.42);
+  g.quadraticCurveTo(x+s*.94,y+s*.35,x+s*.66,y+s*.20); g.closePath();
+  g.moveTo(x-s*.57,y+s*.40); g.quadraticCurveTo(x-s*.55,y+s*.87,x-s*.25,y+s*.98);
+  g.quadraticCurveTo(x-s*.02,y+s*.94,x-s*.08,y+s*.57); g.closePath();
+  g.moveTo(x-s*.91,y+s*.10); g.quadraticCurveTo(x-s*1.35,y+s*.09,x-s*1.42,y+s*.34);
+  g.quadraticCurveTo(x-s*1.39,y+s*.54,x-s*.94,y+s*.47); g.closePath();
+  // Simple shell scutes.
+  g.moveTo(x-s*.55,y-s*.43); g.lineTo(x-s*.18,y-s*.60); g.lineTo(x+s*.12,y-s*.52); g.lineTo(x+s*.22,y-s*.20); g.lineTo(x-s*.04,y+s*.02); g.closePath();
+  g.moveTo(x-s*.18,y-s*.60); g.lineTo(x+s*.22,y-s*.70); g.lineTo(x+s*.55,y-s*.50); g.lineTo(x+s*.51,y-s*.19); g.lineTo(x+s*.22,y-s*.20);
+  g.moveTo(x-s*.04,y+s*.02); g.lineTo(x+s*.22,y-s*.20); g.lineTo(x+s*.51,y-s*.19); g.lineTo(x+s*.58,y+s*.16); g.lineTo(x+s*.27,y+s*.43); g.lineTo(x-s*.08,y+s*.36); g.closePath();
+  g.moveTo(x-s*.55,y-s*.43); g.lineTo(x-s*.64,y-s*.05); g.lineTo(x-s*.42,y+s*.31); g.lineTo(x-s*.08,y+s*.36); g.moveTo(x-s*.64,y-s*.05); g.lineTo(x-s*.04,y+s*.02);
+}
+function dolphin(g,x,y,s){
+  g.beginPath();
+  // Nose at upper-right, arched back, tapering body and narrow tail stock.
+  g.moveTo(x-s*.68,y+s*.86);
+  g.quadraticCurveTo(x-s*.86,y+s*.20,x-s*.72,y-s*.34);
+  g.quadraticCurveTo(x-s*.60,y-s*.95,x-s*.05,y-s*1.18);
+  g.quadraticCurveTo(x+s*.42,y-s*1.34,x+s*.80,y-s*1.12);
+  g.quadraticCurveTo(x+s*1.02,y-s*.99,x+s*1.17,y-s*.86);
+  g.quadraticCurveTo(x+s*1.31,y-s*.79,x+s*1.48,y-s*.80);
+  g.quadraticCurveTo(x+s*1.34,y-s*.62,x+s*1.09,y-s*.55);
+  g.quadraticCurveTo(x+s*.77,y-s*.42,x+s*.48,y-s*.15);
+  g.quadraticCurveTo(x+s*.22,y+s*.13,x+s*.02,y+s*.48);
+  g.quadraticCurveTo(x-s*.20,y+s*.80,x-s*.22,y+s*1.20);
+  g.quadraticCurveTo(x-s*.43,y+s*1.02,x-s*.68,y+s*.86); g.closePath();
+  // Dorsal fin.
+  g.moveTo(x-s*.08,y-s*1.15); g.quadraticCurveTo(x+s*.03,y-s*1.52,x+s*.22,y-s*1.35);
+  g.quadraticCurveTo(x+s*.32,y-s*1.25,x+s*.42,y-s*1.20);
+  // Near-side pectoral fin.
+  g.moveTo(x+s*.05,y-s*.10); g.quadraticCurveTo(x+s*.37,y+s*.02,x+s*.28,y+s*.38);
+  g.quadraticCurveTo(x+s*.12,y+s*.66,x-s*.02,y+s*.84);
+  g.quadraticCurveTo(x+s*.00,y+s*.40,x-s*.16,y+s*.19);
+  // Tail flukes at lower-left.
+  g.moveTo(x-s*.22,y+s*1.20); g.quadraticCurveTo(x-s*.56,y+s*1.32,x-s*.86,y+s*1.58);
+  g.quadraticCurveTo(x-s*.84,y+s*1.27,x-s*.55,y+s*1.14);
+  g.moveTo(x-s*.22,y+s*1.20); g.quadraticCurveTo(x-s*.15,y+s*1.45,x+s*.12,y+s*1.56);
+  g.quadraticCurveTo(x+s*.03,y+s*1.24,x-s*.22,y+s*1.20);
+}
+function kangaroo(g,x,y,s){
+  g.beginPath();
+  // Side-view kangaroo facing left, with a small head, tall ears,
+  // deep chest, large hindquarters and a long tapering tail to the right.
+  // Main outer silhouette.
+  g.moveTo(x+s*1.95,y+s*.68);                         // tail tip
+  g.quadraticCurveTo(x+s*1.55,y+s*.72,x+s*1.18,y+s*.72);
+  g.quadraticCurveTo(x+s*.72,y+s*.77,x+s*.48,y+s*.48);
+  g.quadraticCurveTo(x+s*.24,y+s*.20,x+s*.04,y+s*.05); // rump/back
+  g.quadraticCurveTo(x-s*.28,y-s*.20,x-s*.66,y-s*.23);
+  g.quadraticCurveTo(x-s*.92,y-s*.25,x-s*1.03,y-s*.43); // shoulder/neck
+  g.quadraticCurveTo(x-s*1.13,y-s*.55,x-s*1.10,y-s*.70);
+  // Head and muzzle pointing left.
+  g.quadraticCurveTo(x-s*1.16,y-s*.79,x-s*1.31,y-s*.76);
+  g.lineTo(x-s*1.52,y-s*.69);
+  g.quadraticCurveTo(x-s*1.42,y-s*.59,x-s*1.28,y-s*.59);
+  g.quadraticCurveTo(x-s*1.15,y-s*.57,x-s*1.15,y-s*.43);
+  g.quadraticCurveTo(x-s*1.18,y-s*.27,x-s*1.08,y-s*.15);
+  // Front of chest and small forearms.
+  g.quadraticCurveTo(x-s*.99,y+s*.05,x-s*.94,y+s*.25);
+  g.quadraticCurveTo(x-s*.91,y+s*.39,x-s*.99,y+s*.52);
+  g.quadraticCurveTo(x-s*1.03,y+s*.59,x-s*.94,y+s*.59);
+  g.lineTo(x-s*.82,y+s*.42);
+  g.quadraticCurveTo(x-s*.77,y+s*.33,x-s*.80,y+s*.20);
+  g.quadraticCurveTo(x-s*.75,y+s*.29,x-s*.70,y+s*.39);
+  g.lineTo(x-s*.60,y+s*.53);
+  g.quadraticCurveTo(x-s*.55,y+s*.59,x-s*.48,y+s*.54);
+  // Belly flows into the big bent hind leg.
+  g.quadraticCurveTo(x-s*.22,y+s*.49,x+s*.03,y+s*.57);
+  g.quadraticCurveTo(x+s*.20,y+s*.63,x+s*.30,y+s*.82);
+  g.lineTo(x+s*.34,y+s*1.02);
+  g.quadraticCurveTo(x+s*.36,y+s*1.10,x+s*.25,y+s*1.10);
+  g.lineTo(x-s*.28,y+s*1.10);
+  g.quadraticCurveTo(x-s*.40,y+s*1.09,x-s*.31,y+s*1.00);
+  g.lineTo(x-s*.08,y+s*.83);
+  g.quadraticCurveTo(x-s*.30,y+s*.74,x-s*.52,y+s*.67);
+  g.quadraticCurveTo(x-s*.67,y+s*.63,x-s*.75,y+s*.76);
+  g.lineTo(x-s*.91,y+s*.98);
+  g.quadraticCurveTo(x-s*.98,y+s*1.06,x-s*1.05,y+s*1.01);
+  g.quadraticCurveTo(x-s*.96,y+s*.81,x-s*.90,y+s*.61);
+  g.quadraticCurveTo(x-s*.88,y+s*.45,x-s*.94,y+s*.32);
+  g.quadraticCurveTo(x-s*1.00,y+s*.12,x-s*1.02,y-s*.04);
+  g.quadraticCurveTo(x-s*1.05,y-s*.17,x-s*.92,y-s*.22);
+  g.closePath();
+
+  // Two long, tapered ears rising from the head.
+  g.moveTo(x-s*1.18,y-s*.58);
+  g.quadraticCurveTo(x-s*1.25,y-s*.91,x-s*1.40,y-s*1.32);
+  g.quadraticCurveTo(x-s*1.18,y-s*1.24,x-s*1.05,y-s*.72);
+  g.closePath();
+  g.moveTo(x-s*1.08,y-s*.61);
+  g.quadraticCurveTo(x-s*1.03,y-s*.98,x-s*.86,y-s*1.19);
+  g.quadraticCurveTo(x-s*.89,y-s*.86,x-s*.96,y-s*.62);
+  g.closePath();
+
+  // Interior contour lines define the forearms and folded hind leg.
+  g.moveTo(x-s*.78,y+s*.22);
+  g.quadraticCurveTo(x-s*.70,y+s*.07,x-s*.72,y-s*.03);
+  g.moveTo(x-s*.54,y+s*.54);
+  g.quadraticCurveTo(x-s*.42,y+s*.39,x-s*.48,y+s*.22);
+  g.quadraticCurveTo(x-s*.53,y+s*.08,x-s*.61,y-s*.02);
+}
+function crocodile(g,x,y,s){
+  g.beginPath();
+  // Long tapering tail at left, low reptile body and broad snout at right.
+  g.moveTo(x-s*1.85,y-s*.02);
+  g.quadraticCurveTo(x-s*1.50,y-s*.13,x-s*1.13,y-s*.32);
+  g.quadraticCurveTo(x-s*.72,y-s*.49,x-s*.20,y-s*.38);
+  g.quadraticCurveTo(x+s*.28,y-s*.35,x+s*.70,y-s*.29);
+  g.quadraticCurveTo(x+s*1.05,y-s*.27,x+s*1.45,y-s*.16);
+  g.lineTo(x+s*1.77,y-s*.12); g.lineTo(x+s*1.62,y+s*.04);
+  g.lineTo(x+s*1.80,y+s*.13); g.quadraticCurveTo(x+s*1.40,y+s*.23,x+s*.95,y+s*.20);
+  g.quadraticCurveTo(x+s*.35,y+s*.27,x-s*.18,y+s*.18);
+  g.quadraticCurveTo(x-s*.55,y+s*.22,x-s*.78,y+s*.14);
+  // Four short legs with toes.
+  g.moveTo(x-s*.62,y+s*.10); g.lineTo(x-s*.78,y+s*.42); g.lineTo(x-s*1.02,y+s*.48);
+  g.lineTo(x-s*.89,y+s*.55); g.lineTo(x-s*.69,y+s*.50); g.lineTo(x-s*.53,y+s*.22);
+  g.moveTo(x+s*.43,y+s*.18); g.lineTo(x+s*.55,y+s*.43); g.lineTo(x+s*.78,y+s*.49);
+  g.lineTo(x+s*.67,y+s*.55); g.lineTo(x+s*.48,y+s*.50); g.lineTo(x+s*.28,y+s*.22);
+  g.moveTo(x-s*.02,y+s*.20); g.lineTo(x-s*.13,y+s*.43); g.lineTo(x-s*.34,y+s*.49);
+  g.lineTo(x-s*.23,y+s*.55); g.lineTo(x-s*.06,y+s*.50); g.lineTo(x+s*.10,y+s*.22);
+  g.moveTo(x+s*.80,y+s*.18); g.lineTo(x+s*.91,y+s*.38); g.lineTo(x+s*1.10,y+s*.42);
+  g.lineTo(x+s*.99,y+s*.48); g.lineTo(x+s*.82,y+s*.44); g.lineTo(x+s*.68,y+s*.21);
+  // Eye and nostril.
+  g.moveTo(x+s*1.25,y-s*.08); g.arc(x+s*1.25,y-s*.08,s*.035,0,Math.PI*2);
+  g.moveTo(x+s*1.60,y-s*.04); g.arc(x+s*1.60,y-s*.04,s*.025,0,Math.PI*2);
+  // Small back ridges.
+  for(let i=0;i<7;i++){let xx=x-s*.52+i*s*.20;g.moveTo(xx,y-s*.38);g.lineTo(xx+s*.09,y-s*.48);g.lineTo(xx+s*.17,y-s*.37);}
+}
+function cassowary(g,x,y,s){
+  g.beginPath();
+  // Tall rounded body, long S-curved neck, head and casque.
+  g.moveTo(x-s*.58,y+s*.50);
+  g.quadraticCurveTo(x-s*.84,y+s*.05,x-s*.57,y-s*.37);
+  g.quadraticCurveTo(x-s*.27,y-s*.72,x+s*.18,y-s*.52);
+  g.quadraticCurveTo(x+s*.55,y-s*.36,x+s*.61,y+s*.05);
+  g.quadraticCurveTo(x+s*.68,y+s*.42,x+s*.37,y+s*.58);
+  g.quadraticCurveTo(x-s*.08,y+s*.73,x-s*.58,y+s*.50); g.closePath();
+  g.moveTo(x+s*.28,y-s*.40); g.quadraticCurveTo(x+s*.51,y-s*.68,x+s*.40,y-s*.97);
+  g.quadraticCurveTo(x+s*.27,y-s*1.22,x+s*.46,y-s*1.43);
+  g.quadraticCurveTo(x+s*.58,y-s*1.57,x+s*.71,y-s*1.40);
+  g.quadraticCurveTo(x+s*.80,y-s*1.26,x+s*.70,y-s*1.12);
+  g.quadraticCurveTo(x+s*.57,y-s*.91,x+s*.66,y-s*.67);
+  g.quadraticCurveTo(x+s*.77,y-s*.45,x+s*.61,y-s*.25);
+  // Beak.
+  g.moveTo(x+s*.69,y-s*1.30); g.lineTo(x+s*.95,y-s*1.24); g.lineTo(x+s*.72,y-s*1.18);
+  // Long legs and feet.
+  g.moveTo(x-s*.22,y+s*.55); g.lineTo(x-s*.27,y+s*1.10); g.lineTo(x-s*.45,y+s*1.24);
+  g.lineTo(x-s*.15,y+s*1.24); g.lineTo(x-s*.02,y+s*1.13); g.lineTo(x+s*.02,y+s*.58);
+  g.moveTo(x+s*.28,y+s*.55); g.lineTo(x+s*.36,y+s*1.08); g.lineTo(x+s*.22,y+s*1.23);
+  g.lineTo(x+s*.53,y+s*1.23); g.lineTo(x+s*.62,y+s*1.15); g.lineTo(x+s*.52,y+s*.51);
+}
 function bird(g,x,y,s){
   // Frigatebird silhouette: long, swept-back wings, a slim body,
   // a small head with hooked bill, and a deeply forked tail.
@@ -108,20 +257,45 @@ function bird(g,x,y,s){
   g.quadraticCurveTo(x-s*.57,y-s*.82,x-s*.78,y-s*.98);
   g.closePath();
 }
-function shark(g,x,y,s){g.beginPath();g.ellipse(x,y,s*1.18,s*.43,0,0,7);g.moveTo(x+s,y-s*.18);g.lineTo(x+s*1.55,y);g.lineTo(x+s,y+s*.18);g.closePath();g.moveTo(x-s,y);g.lineTo(x-s*1.65,y-s*.62);g.lineTo(x-s*1.35,y);g.lineTo(x-s*1.65,y+s*.62);g.closePath();g.moveTo(x-s*.1,y-s*.32);g.lineTo(x+s*.25,y-s*.95);g.lineTo(x+s*.45,y-s*.28);g.closePath();g.moveTo(x,y+s*.28);g.lineTo(x+s*.28,y+s*.78);g.lineTo(x+s*.52,y+s*.23);g.closePath()}
+function shark(g,x,y,s){
+  g.beginPath();
+  // Streamlined shark facing right, with pointed snout and crescent tail.
+  g.moveTo(x-s*1.52,y+s*.03);
+  g.quadraticCurveTo(x-s*1.13,y-s*.24,x-s*.57,y-s*.32);
+  g.lineTo(x-s*.26,y-s*.66); g.lineTo(x-s*.05,y-s*.31);
+  g.quadraticCurveTo(x+s*.35,y-s*.29,x+s*.72,y-s*.12);
+  g.quadraticCurveTo(x+s*1.05,y-s*.02,x+s*1.43,y+s*.13);
+  g.quadraticCurveTo(x+s*1.55,y+s*.19,x+s*1.43,y+s*.27);
+  g.quadraticCurveTo(x+s*.85,y+s*.42,x+s*.38,y+s*.36);
+  g.quadraticCurveTo(x-s*.35,y+s*.32,x-s*.85,y+s*.20);
+  g.lineTo(x-s*1.24,y+s*.53); g.lineTo(x-s*1.08,y+s*.12);
+  g.lineTo(x-s*1.48,y-s*.25); g.lineTo(x-s*1.52,y+s*.03); g.closePath();
+  // Dorsal fin and pectoral fin.
+  g.moveTo(x-s*.12,y-s*.29); g.quadraticCurveTo(x+s*.04,y-s*.98,x+s*.30,y-s*.30);
+  g.moveTo(x+s*.18,y+s*.20); g.lineTo(x+s*.49,y+s*.73); g.quadraticCurveTo(x+s*.56,y+s*.79,x+s*.56,y+s*.65);
+  g.lineTo(x+s*.47,y+s*.24);
+  // Tail crescent.
+  g.moveTo(x-s*.85,y+s*.20); g.lineTo(x-s*1.24,y+s*.53); g.lineTo(x-s*1.18,y+s*.10);
+  g.lineTo(x-s*1.40,y-s*.42); g.lineTo(x-s*.95,y-s*.14);
+  // Gill marks and eye.
+  for(let i=0;i<4;i++){let xx=x+s*.62+i*s*.09;g.moveTo(xx,y-s*.05);g.quadraticCurveTo(xx-s*.05,y+s*.08,xx,y+s*.20);}
+  g.moveTo(x+s*1.14,y+s*.02); g.arc(x+s*1.14,y+s*.02,s*.025,0,Math.PI*2);
+}
 
 function resize(){
  DPR=Math.min(devicePixelRatio||1,2); W=innerWidth;H=innerHeight;c.width=W*DPR;c.height=H*DPR;ctx.setTransform(DPR,0,0,DPR,0,0);
 
  // Sample points only along the animal's outline. The story will travel
  // through these points like a constellation rather than filling the silhouette.
- const s=Math.min(W,H)*.30;
+ const isDolphin=animal.name==='Dolphin';
+ const s=Math.min(W,H)*(isDolphin?.20:.30);
+ const animalY=isDolphin?H*.37:H/2-35;
  const off=document.createElement('canvas');
  off.width=W;off.height=H;
  const g=off.getContext('2d');
  g.strokeStyle='#fff';
  g.lineWidth=3;
- animal.draw(g,W/2,H/2-35,s);
+ animal.draw(g,W/2,animalY,s);
  g.stroke();
 
  const d=g.getImageData(0,0,W,H).data;
@@ -163,7 +337,8 @@ function render(){
    ctx.globalAlpha=.08;
    ctx.strokeStyle='#9fefff';
    ctx.lineWidth=1;
-   animal.draw(ctx,cx,cy,Math.min(W,H)*.30);
+   const isDolphin=animal.name==='Dolphin';
+   animal.draw(ctx,cx,isDolphin?H*.37:cy,Math.min(W,H)*(isDolphin?.20:.30));
    ctx.stroke();
    ctx.globalAlpha=1;
    return;
